@@ -10,7 +10,10 @@ class StringManipulation {
   }
 }
 
+// we can make as many children we want that inherit addDashesToStringAndLowerCase
+
 class ChildOne extends StringManipulation {
+  // can use addDashesToStringAndLowerCase
   constructor() {}
 }
 
@@ -35,16 +38,12 @@ class ChildTwo extends StringManipulation {
       })
       .catch((err) => console.log(err));
   }
-
-  init() {
-    this.callAPI();
-  }
 }
 
 (async () => {
   const employee = await new ChildTwo();
-  console.log(employee.firstEmployee.employee_name);
+  // call the method from the parent class called addDashesToStringAndLowerCase from the child to convert an employee name string
   console.log(
     employee.addDashesToStringAndLowerCase(employee.firstEmployee.employee_name)
-  );
+  ); // prints 'tiger-nixon'
 })();
